@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<launch>
+   
+    <node name="graphs" pkg="rqt_plot" type="rqt_plot" output="screen" args="
+    /inverted_pendulum/current_state/curr_x_dot 
+    /inverted_pendulum/current_state/curr_x_dot_dot 
+    /inverted_pendulum/current_state/curr_theta_dot  
+    /inverted_pendulum/current_state/curr_theta_dot_dot
+    /inverted_pendulum/control_force" />
+
+    <node pkg="inverted_pendulum_sim" type="inverted_pendulum_sim_node.py" name="InvertedPendulum" output="screen"
+          required="true"/>
+    <node pkg="controller_pkg" type="task1.py" name = "task1" output="screen" />
+    <node pkg="controller_pkg" type="task2.py" name = "task2" output="screen" />
+
+</launch>
